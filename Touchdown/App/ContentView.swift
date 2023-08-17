@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    // MARK: - Properties
+    
     
     // MARK: - Body
     var body: some View {
@@ -28,6 +28,15 @@ struct ContentView: View {
                             .frame(height: 300)
                         
                         CategoryGridView()
+                        
+                        TitleView(title: "Helmets")
+                        
+                        LazyVGrid(columns: gridLayout, spacing: rowSpacing) {
+                            ForEach(products) { product in
+                                ProductItemView(product: product)
+                            }//: Loop
+                        }//: VGrid
+                        .padding(15)
                         
                         FooterView()
                             .padding(.horizontal)
